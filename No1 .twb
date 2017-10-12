@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10300.17.0728.2252                               -->
+<workbook original-version='10.3' source-build='10.3.2 (10300.17.0728.2252)' source-platform='win' version='10.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='fsnd_GDP_A020101' inline='true' name='federated.1ezq83s1r94m461dazz170nofbd9' version='10.3'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='fsnd_POP_A030101' name='textscan.1t32gi91gsr7ww17xnvad0lllwcw'>
+            <connection class='textscan' cleaning='yes' compat='no' csvFile='C:\Users\hantengliao\Documents\Course_Visualization\tableau_gov_cn\fsnd_POP_A030101.csv' dataRefreshTime='' directory='C:/360安全浏览器下载/tableau_gov_cn/tableau_gov_cn' filename='_POP_A030101.csv' interpretationMode='8' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[_POP_A030101.csv].[年]' />
+                <expression op='[_GDP_A030101.csv].[年]' />
+              </expression>
+              <expression op='='>
+                <expression op='[_POP_A030101.csv].[地区]' />
+                <expression op='[_GDP_A030101.csv].[地区]' />
+              </expression>
+            </expression>
+          </clause>
+          <relation connection='textscan.1t32gi91gsr7ww17xnvad0lllwcw' name='_POP_A030101.csv' table='[_POP_A030101#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='zh_HK' separator=','>
+              <column datatype='integer' name='记录数' ordinal='0' />
+              <column datatype='string' name='地区' ordinal='1' />
+              <column datatype='integer' name='POP' ordinal='2' />
+              <column datatype='integer' date-parse-format='yyyy' name='年' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1t32gi91gsr7ww17xnvad0lllwcw' name='_GDP_A030101.csv' table='[_GDP_A030101#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='zh_HK' separator=','>
+              <column datatype='integer' name='记录数' ordinal='0' />
+              <column datatype='string' name='地区' ordinal='1' />
+              <column datatype='real' name='GDP' ordinal='2' />
+              <column datatype='integer' date-parse-format='yyyy' name='年' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[GDP]' value='[_GDP_A030101.csv].[GDP]' />
+          <map key='[POP]' value='[_POP_A030101.csv].[POP]' />
+          <map key='[地区 (_GDP_A030101.csv)]' value='[_GDP_A030101.csv].[地区]' />
+          <map key='[地区]' value='[_POP_A030101.csv].[地区]' />
+          <map key='[年 (_GDP_A030101.csv)]' value='[_GDP_A030101.csv].[年]' />
+          <map key='[年]' value='[_POP_A030101.csv].[年]' />
+          <map key='[记录数 (_GDP_A030101.csv)]' value='[_GDP_A030101.csv].[记录数]' />
+          <map key='[记录数]' value='[_POP_A030101.csv].[记录数]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>记录数</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[记录数]</local-name>
+            <parent-name>[_POP_A030101.csv]</parent-name>
+            <remote-alias>记录数</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>地区</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[地区]</local-name>
+            <parent-name>[_POP_A030101.csv]</parent-name>
+            <remote-alias>地区</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RTW_ZHANT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;zh_Hant_TW&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>POP</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[POP]</local-name>
+            <parent-name>[_POP_A030101.csv]</parent-name>
+            <remote-alias>POP</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>年</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[年]</local-name>
+            <parent-name>[_POP_A030101.csv]</parent-name>
+            <remote-alias>年</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[_POP_A030101.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;zh_Hant_TW&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;zh_HK&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>记录数</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[记录数 (_GDP_A030101.csv)]</local-name>
+            <parent-name>[_GDP_A030101.csv]</parent-name>
+            <remote-alias>记录数</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>地区</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[地区 (_GDP_A030101.csv)]</local-name>
+            <parent-name>[_GDP_A030101.csv]</parent-name>
+            <remote-alias>地区</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RTW_ZHANT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;zh_Hant_TW&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GDP</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[GDP]</local-name>
+            <parent-name>[_GDP_A030101.csv]</parent-name>
+            <remote-alias>GDP</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>年</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[年 (_GDP_A030101.csv)]</local-name>
+            <parent-name>[_GDP_A030101.csv]</parent-name>
+            <remote-alias>年</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[_GDP_A030101.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;zh_Hant_TW&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;zh_HK&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[年 (_GDP_A030101.csv)]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[年]' role='dimension' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.479381' measure-ordering='alphabetic' measure-percentage='0.520619' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Taiwan&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='工作表 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fsnd_GDP_A020101' name='federated.1ezq83s1r94m461dazz170nofbd9' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ezq83s1r94m461dazz170nofbd9'>
+            <column datatype='real' name='[GDP]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[POP]' role='measure' type='quantitative' />
+            <column-instance column='[地区 (_GDP_A030101.csv)]' derivation='None' name='[none:地区 (_GDP_A030101.csv):nk]' pivot='key' type='nominal' />
+            <column-instance column='[年 (_GDP_A030101.csv)]' derivation='None' name='[none:年 (_GDP_A030101.csv):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[GDP]' derivation='Sum' name='[sum:GDP:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[POP]' derivation='Sum' name='[sum:POP:qk]' pivot='key' type='quantitative' />
+            <column datatype='string' name='[地区 (_GDP_A030101.csv)]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[年 (_GDP_A030101.csv)]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1ezq83s1r94m461dazz170nofbd9].[none:年 (_GDP_A030101.csv):ok]'>
+            <groupfilter function='level-members' level='[none:年 (_GDP_A030101.csv):ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1ezq83s1r94m461dazz170nofbd9].[none:年 (_GDP_A030101.csv):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1ezq83s1r94m461dazz170nofbd9].[sum:GDP:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-color' id='refline0' value='#000000' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-color' value='#76b7b2' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='1' />
+            <format attr='stroke-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Shape' />
+            <encodings>
+              <color column='[federated.1ezq83s1r94m461dazz170nofbd9].[sum:POP:qk]' />
+              <size column='[federated.1ezq83s1r94m461dazz170nofbd9].[sum:GDP:qk]' />
+              <text column='[federated.1ezq83s1r94m461dazz170nofbd9].[none:地区 (_GDP_A030101.csv):nk]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' exclude-panes='false' fit='linear' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.60000002384185791' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-color' value='#e15759c4' />
+                <format attr='stroke-size' value='5' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1ezq83s1r94m461dazz170nofbd9].[sum:GDP:qk]</rows>
+        <cols>[federated.1ezq83s1r94m461dazz170nofbd9].[sum:POP:qk]</cols>
+        <pages>
+          <column>[federated.1ezq83s1r94m461dazz170nofbd9].[none:年 (_GDP_A030101.csv):ok]</column>
+        </pages>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.5' source-height='44'>
+    <window class='worksheet' maximized='true' name='工作表 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='title' />
+            <card type='currpage' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1ezq83s1r94m461dazz170nofbd9].[none:年 (_GDP_A030101.csv):ok]' type='filter' />
+            <card param='[federated.1ezq83s1r94m461dazz170nofbd9].[none:地区 (_GDP_A030101.csv):nk]' type='highlighter' />
+            <card pane-specification-id='1' param='[federated.1ezq83s1r94m461dazz170nofbd9].[sum:POP:qk]' type='color' />
+            <card pane-specification-id='1' param='[federated.1ezq83s1r94m461dazz170nofbd9].[sum:GDP:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <current-page>
+          <multibucket>
+            <bucket>2015</bucket>
+          </multibucket>
+        </current-page>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ezq83s1r94m461dazz170nofbd9].[:Measure Names]</field>
+            <field>[federated.1ezq83s1r94m461dazz170nofbd9].[none:地区 (_GDP_A030101.csv):nk]</field>
+            <field>[federated.1ezq83s1r94m461dazz170nofbd9].[none:地区:nk]</field>
+            <field>[federated.1ezq83s1r94m461dazz170nofbd9].[none:年 (_GDP_A030101.csv):qk]</field>
+            <field>[federated.1ezq83s1r94m461dazz170nofbd9].[none:年:qk]</field>
+            <field>[federated.1ezq83s1r94m461dazz170nofbd9].[sum:GDP:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='工作表 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
